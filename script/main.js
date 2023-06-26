@@ -12,9 +12,15 @@ function handleChosenOption(e) {
 }
 
 function chooseRandomOption() {
-  const randomIndex = Math.floor(Math.random() * options.length);
-  const randomOption = options[randomIndex].className;
-  return randomOption;
+  const randomOption = Math.floor(Math.random() * 37);
+
+  if (randomOption === 0) {
+    return 'circle';
+  } else if (randomOption % 2 === 0) {
+    return 'square';
+  } else {
+    return 'triangle';
+  }
 }
 
 function compareOptions(playerOption, machineOption) {
