@@ -7,6 +7,9 @@ options.forEach((option) => {
 });
 
 function handleChosenOption(e) {
+  if (!checkBets()) {
+    return;
+  }
   const clickedElement = e.target;
   const chosenOption = clickedElement.className;
   const randomOption = chooseRandomOption();
@@ -26,7 +29,13 @@ function chooseRandomOption() {
 }
 
 function compareOptions(playerOption, machineOption) {
-  console.log(playerOption === machineOption ? "win!" : "try again");
+  if (playerOption === machineOption && machineOption === "circle") {
+    addExtraMoney();
+  } else if (playerOption === machineOption) {
+    addMoney();
+  } else {
+    subtractMoney();
+  }
 }
 
 // input values
@@ -55,10 +64,42 @@ userBetForm.addEventListener("submit", (e) => {
 const oneHundred = document.querySelector("#oneHundred");
 const fiveHundred = document.querySelector("#fiveHundred");
 
+// choose the bet size
+
+let betSize = "";
+
 oneHundred.addEventListener("click", () => {
-  console.log("Clicked on oneHundred element");
+  betSize = 10;
 });
 
 fiveHundred.addEventListener("click", () => {
-  console.log("Clicked on fiveHundred element");
+  betSize = 50;
 });
+
+// update total money after the bet
+
+let currentMoney = 1000;
+
+function addExtraMoney() {
+  currentMoney += betSize * 37;
+  console.log("mega win! ", currentMoney);
+}
+
+function addMoney() {
+  currentMoney += betSize;
+  console.log("win! ", currentMoney);
+}
+
+function subtractMoney() {
+  currentMoney -= betSize;
+  console.log("lose ", currentMoney);
+}
+
+// check if the bet amount was selected
+
+function checkBets() {
+  if (betSize === "") {
+    alert("set bet value");
+    return 0;
+  } else return 1;
+}
