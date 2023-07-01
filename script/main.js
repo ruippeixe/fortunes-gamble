@@ -10,10 +10,14 @@ function handleChosenOption(e) {
   if (!checkBets()) {
     return;
   }
-  const clickedElement = e.target;
-  const chosenOption = clickedElement.className;
-  const randomOption = chooseRandomOption();
-  compareOptions(chosenOption, randomOption);
+  if (isTotalMoneyEnough(totalMoney, betSize)) {
+    const clickedElement = e.target;
+    const chosenOption = clickedElement.className;
+    const randomOption = chooseRandomOption();
+    compareOptions(chosenOption, randomOption);
+  } else {
+    console.log("sorry, you don't have enough money");
+  }
 }
 
 function chooseRandomOption() {
@@ -78,21 +82,21 @@ fiveHundred.addEventListener("click", () => {
 
 // update total money after the bet
 
-let currentMoney = 1000;
+let totalMoney = 50;
 
 function addExtraMoney() {
-  currentMoney += betSize * 37;
-  console.log("mega win! ", currentMoney);
+  totalMoney += betSize * 37;
+  console.log("mega win! ", totalMoney);
 }
 
 function addMoney() {
-  currentMoney += betSize;
-  console.log("win! ", currentMoney);
+  totalMoney += betSize;
+  console.log("win! ", totalMoney);
 }
 
 function subtractMoney() {
-  currentMoney -= betSize;
-  console.log("lose ", currentMoney);
+  totalMoney -= betSize;
+  console.log("lose ", totalMoney);
 }
 
 // check if the bet amount was selected
@@ -102,4 +106,11 @@ function checkBets() {
     alert("set bet value");
     return 0;
   } else return 1;
+}
+
+// check if the total amount of money is enough to bet
+
+function isTotalMoneyEnough(total, bet) {
+  let result = total - bet;
+  return result >= 0;
 }
