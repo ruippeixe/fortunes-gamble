@@ -53,7 +53,7 @@ userBetForm.addEventListener("submit", (e) => {
     userBetAmount !== "" &&
     !userBetAmount.includes(" ")
   ) {
-    console.log("Input value:", userBetAmount);
+    betSize = parseInt(userBetAmount);
   } else {
     console.log("Invalid input! Please enter a numeric value.");
   }
