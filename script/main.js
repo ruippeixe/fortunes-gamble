@@ -57,6 +57,7 @@ userBetForm.addEventListener("submit", (e) => {
     userBetAmount !== "" &&
     !userBetAmount.includes(" ")
   ) {
+    checkMinimumBetAmount(userBetAmount);
     betSize = parseInt(userBetAmount);
   } else {
     console.log("Invalid input! Please enter a numeric value.");
@@ -113,4 +114,14 @@ function checkBets() {
 function isTotalMoneyEnough(total, bet) {
   let result = total - bet;
   return result >= 0;
+}
+
+// minimum bet amount
+
+function checkMinimumBetAmount(amount) {
+  if (amount < 2) {
+    console.log("Minimum bet amount not met!");
+    return false;
+  }
+  return true;
 }
