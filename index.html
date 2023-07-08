@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="dist/main.css" />
@@ -22,9 +22,40 @@
         </div>
       </header>
 
-      <div class="frame">
-        <div class="table">
-          <div class="screen">1000€</div>
+      <div class="game-container">
+        <div class="game-table">
+          <div class="screen">
+            <div class="symbol">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="17"
+                  stroke="white"
+                  stroke-width="6"
+                />
+              </svg>
+            </div>
+            <div class="bet">+ 1000€</div>
+          </div>
+
+          <div class="wallet">
+            <img class="wallet-icon" src="imgs/piggy-bank.svg" alt="" />
+            <div class="wallet-info">
+              Wallet: <span class="total">500,00€</span>
+            </div>
+            <div class="game-reset">
+              <img class="icon" src="imgs/reset.svg" alt="" />
+              <p class="label">reset</p>
+            </div>
+          </div>
+
           <div class="options">
             <div class="square">[]</div>
             <div class="circle">O</div>
@@ -38,7 +69,6 @@
             <input id="userBetAmount" type="text" placeholder="set an amount" />
           </form>
           <div class="gamble">gamble!</div>
-          <div class="wallet">wallet: <span>50.000€</span></div>
           <div>reset</div>
         </div>
       </div>

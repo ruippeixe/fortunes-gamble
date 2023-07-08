@@ -317,7 +317,7 @@ template {
 }
 
 body {
-  font-family: "Roboto Serif", serif;
+  font-family: "Roboto Slab", serif;
 }
 
 h1,
@@ -351,16 +351,66 @@ h6 {
   font-size: 2.5rem;
 }
 
-.frame {
+.game-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding-top: 200px;
-  padding: 200px;
+  margin-top: 200px;
 }
-
-.table {
-  border: 1px solid black;
+.game-container .game-table {
   background-color: #fff;
+  max-width: 264px;
+  width: 100%;
+}
+.game-container .game-table .screen {
+  display: flex;
+  flex-direction: column;
+  height: 114px;
+  margin-bottom: 8px;
+  background-color: green;
+}
+.game-container .game-table .screen .symbol {
+  display: flex;
+  height: 100%;
+  align-items: end;
+  justify-content: center;
+}
+.game-container .game-table .screen .bet {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.game-container .game-table .wallet {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  margin-bottom: 8px;
+  outline: 1px solid red;
+}
+.game-container .game-table .wallet .wallet-icon {
+  width: 100%;
+  max-width: 24px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.game-container .game-table .wallet .wallet-info .total {
+  font-weight: 700;
+}
+.game-container .game-table .wallet .game-reset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 16px;
+  padding: 2px;
+  background-color: gray;
+}
+.game-container .game-table .wallet .game-reset .icon {
+  width: 100%;
+  max-width: 12px;
+}
+.game-container .game-table .wallet .game-reset .label {
+  font-size: 8px;
 }/*# sourceMappingURL=main.css.map */
