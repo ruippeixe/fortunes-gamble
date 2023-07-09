@@ -66,18 +66,18 @@ userBetForm.addEventListener("submit", (e) => {
   inputValue.value = "";
 });
 
-const oneHundred = document.querySelector("#oneHundred");
-const fiveHundred = document.querySelector("#fiveHundred");
+const smallBet = document.querySelector("#smallBet");
+const bigBet = document.querySelector("#bigBet");
 
 // choose the bet size
 
 let betSize = "";
 
-oneHundred.addEventListener("click", () => {
+smallBet.addEventListener("click", () => {
   betSize = 10;
 });
 
-fiveHundred.addEventListener("click", () => {
+bigBet.addEventListener("click", () => {
   betSize = 50;
 });
 

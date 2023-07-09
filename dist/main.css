@@ -366,7 +366,9 @@ h6 {
   flex-direction: column;
   height: 114px;
   margin-bottom: 8px;
+  line-height: 0;
   background-color: green;
+  outline: 1px solid red;
 }
 .game-container .game-table .screen .symbol {
   display: flex;
@@ -387,12 +389,12 @@ h6 {
   align-items: center;
   height: 42px;
   margin-bottom: 8px;
+  padding: 16px;
   outline: 1px solid red;
 }
 .game-container .game-table .wallet .wallet-icon {
   width: 100%;
   max-width: 24px;
-  margin-left: 16px;
   margin-right: 16px;
 }
 .game-container .game-table .wallet .wallet-info .total {
@@ -403,7 +405,6 @@ h6 {
   flex-direction: column;
   align-items: center;
   margin-left: auto;
-  margin-right: 16px;
   padding: 2px;
   background-color: gray;
 }
@@ -413,4 +414,58 @@ h6 {
 }
 .game-container .game-table .wallet .game-reset .label {
   font-size: 8px;
+}
+.game-container .game-table .choose-bet {
+  display: flex;
+  height: 48px;
+  margin-bottom: 8px;
+}
+.game-container .game-table .choose-bet .bet-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 16px;
+  outline: 1px solid red;
+}
+.game-container .game-table .choose-bet .bet-btn.small-bet {
+  margin-right: 4px;
+}
+.game-container .game-table .choose-bet .bet-btn.big-bet {
+  margin-left: 4px;
+}
+.game-container .game-table .choose-bet .bet-btn img {
+  max-width: 24px;
+  width: 100%;
+  margin-right: 16px;
+}
+.game-container .game-table .user-set-bet-form {
+  margin-bottom: 8px;
+}
+.game-container .game-table .user-set-bet-form .user-set-bet-container {
+  position: relative;
+}
+.game-container .game-table .user-set-bet-form .user-set-bet-container .user-set-bet {
+  width: 100%;
+  height: 40px;
+  padding-left: 55px;
+  outline: 1px solid red;
+}
+.game-container .game-table .user-set-bet-form .user-set-bet-container .user-set-bet-icon {
+  position: absolute;
+  top: 25%;
+  left: 16px;
+}
+.game-container .game-table .options {
+  display: flex;
+  width: 100%;
+  height: 64px;
+  outline: 1px solid red;
+}
+.game-container .game-table .options .option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  outline: 1px solid red;
 }/*# sourceMappingURL=main.css.map */

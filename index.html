@@ -56,18 +56,46 @@
             </div>
           </div>
 
-          <div class="options">
-            <div class="square">[]</div>
-            <div class="circle">O</div>
-            <div class="triangle">/\</div>
+          <div class="choose-bet">
+            <div id="smallBet" class="bet-btn small-bet">
+              <img src="imgs/bet.svg" alt="" />
+              <p class="bet-size">10€</p>
+            </div>
+
+            <div id="bigBet" class="bet-btn big-bet">
+              <img src="imgs/bet.svg" alt="" />
+              <p class="bet-size">50€</p>
+            </div>
           </div>
-          <div>
-            <div id="oneHundred" class="one-hundred">10€</div>
-            <div id="fiveHundred" class="five-hundred">50€</div>
-          </div>
-          <form id="userBetForm">
-            <input id="userBetAmount" type="text" placeholder="set an amount" />
+
+          <form id="userBetForm" class="user-set-bet-form">
+            <div class="user-set-bet-container">
+              <input
+                id="userBetAmount"
+                class="user-set-bet"
+                type="text"
+                placeholder="set an amount"
+              />
+              <img
+                class="user-set-bet-icon"
+                src="imgs/user-set-bet.svg"
+                alt=""
+              />
+            </div>
           </form>
+
+          <div class="options">
+            <div class="option square">
+              <img src="imgs/square.svg" alt="" />
+            </div>
+            <div class="option circle">
+              <img src="imgs/circle.svg" alt="" />
+            </div>
+            <div class="option triangle">
+              <img src="imgs/triangle.svg" alt="" />
+            </div>
+          </div>
+
           <div class="gamble">gamble!</div>
           <div>reset</div>
         </div>
