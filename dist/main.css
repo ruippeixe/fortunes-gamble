@@ -337,30 +337,37 @@ h6 {
 
 .header {
   padding-top: 48px;
-  padding: 48px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 .header .main-title {
   font-size: 2.5rem;
   margin-bottom: 8px;
 }
 .header .sub-title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 .game-container {
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  padding-top: 72px;
+}
+.game-container .blob-bg {
+  position: absolute;
+  top: 160px;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
 }
 .game-container .game-table {
-  background-color: #050505;
+  position: relative;
   max-width: 264px;
   width: 100%;
-  position: relative;
+  background-color: #050505;
 }
 .game-container .game-table .screen {
   display: flex;
@@ -368,23 +375,15 @@ h6 {
   height: 114px;
   margin-bottom: 8px;
   line-height: 0;
-  background-color: #4D4D4D;
+  background-color: #4d4d4d;
   border-radius: 4px;
 }
-.game-container .game-table .screen .symbol {
+.game-container .game-table .screen .waiting-screen {
   display: flex;
-  height: 100%;
-  align-items: end;
   justify-content: center;
-}
-.game-container .game-table .screen .bet {
-  display: flex;
-  height: 100%;
   align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #FFFFFF;
+  width: 100%;
+  height: 100%;
 }
 .game-container .game-table .wallet {
   display: flex;
@@ -399,7 +398,7 @@ h6 {
   margin-right: 16px;
 }
 .game-container .game-table .wallet .wallet-info {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .game-container .game-table .wallet .wallet-info .total {
   font-weight: 700;
@@ -410,15 +409,16 @@ h6 {
   align-items: center;
   margin-left: auto;
   padding: 4px;
-  background-color: #4D4D4D;
+  background-color: #4d4d4d;
   border-radius: 4px;
+  cursor: pointer;
 }
 .game-container .game-table .wallet .game-reset .icon {
   width: 100%;
   max-width: 12px;
 }
 .game-container .game-table .wallet .game-reset .label {
-  color: #B3B3B3;
+  color: #b3b3b3;
   font-size: 8px;
   line-height: 1;
 }
@@ -426,8 +426,6 @@ h6 {
   display: flex;
   height: 48px;
   margin-bottom: 8px;
-  background-color: #4D4D4D;
-  border-radius: 4px;
 }
 .game-container .game-table .choose-bet .bet-btn {
   display: flex;
@@ -435,7 +433,10 @@ h6 {
   width: 100%;
   font-size: 1.5rem;
   padding: 16px;
-  color: #B3B3B3;
+  color: #b3b3b3;
+  background-color: #4d4d4d;
+  border-radius: 4px;
+  cursor: pointer;
 }
 .game-container .game-table .choose-bet .bet-btn.small-bet {
   margin-right: 4px;
@@ -458,15 +459,15 @@ h6 {
   width: 100%;
   height: 40px;
   padding-left: 55px;
-  border-radius: 4px;
-  background-color: #4D4D4D;
-  color: #B3B3B3;
+  color: #b3b3b3;
+  background-color: #4d4d4d;
   border: none;
   outline: none;
+  border-radius: 4px;
 }
 .game-container .game-table .user-set-bet-form .user-set-bet-container .user-set-bet:focus {
-  background-color: #FFFFFF;
   color: #050505;
+  background-color: #ffffff;
 }
 .game-container .game-table .user-set-bet-form .user-set-bet-container .user-set-bet-icon {
   position: absolute;
@@ -484,44 +485,49 @@ h6 {
   align-items: center;
   justify-content: center;
   width: 100%;
+  color: #b3b3b3;
+  background-color: #4d4d4d;
   border-radius: 4px;
-  background-color: #4D4D4D;
-  color: #B3B3B3;
+  cursor: pointer;
 }
 .game-container .game-table .options .option.square {
   margin-right: 4px;
 }
 .game-container .game-table .options .option.circle {
-  margin-right: 4px;
   margin-left: 4px;
+  margin-right: 4px;
 }
 .game-container .game-table .options .option.triangle {
   margin-left: 4px;
 }
 .game-container .game-table .gamble {
-  display: flex;
   height: 72px;
-  justify-content: center;
-  align-items: center;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 4px;
 }
 .game-container .game-table .gamble .gamble-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   font-size: 2rem;
   font-weight: 700;
   color: #050505;
+  cursor: pointer;
 }
 .game-container .game-table .reset {
   position: absolute;
   top: 0;
   left: 100%;
-  margin-left: 8px;
-  padding: 4px;
-  background-color: #4D4D4D;
   max-width: 24px;
   width: 100%;
   max-height: 24px;
+  margin-left: 8px;
+  padding: 4px;
+  background-color: #4d4d4d;
   border-radius: 4px;
+  cursor: pointer;
 }
 .game-container .game-table .reset img {
   max-width: 16px;
