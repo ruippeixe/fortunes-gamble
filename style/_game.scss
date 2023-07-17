@@ -111,6 +111,17 @@
         border-radius: 4px;
         cursor: pointer;
 
+        &.active {
+          color: #050505;
+          background-color: #ffffff;
+
+          svg {
+            path {
+              fill: #050505;
+            }
+          }
+        }
+
         &.small-bet {
           margin-right: 4px;
         }
@@ -118,7 +129,7 @@
           margin-left: 4px;
         }
 
-        img {
+        svg {
           max-width: 24px;
           width: 100%;
           margin-right: 16px;
@@ -172,17 +183,46 @@
         border-radius: 4px;
         cursor: pointer;
 
+        &.active {
+          color: #050505;
+          background-color: #ffffff;
+        }
+
         &.square {
           margin-right: 4px;
+
+          &.active {
+            svg {
+              rect {
+                stroke: #050505;
+              }
+            }
+          }
         }
 
         &.circle {
           margin-left: 4px;
           margin-right: 4px;
+
+          &.active {
+            svg {
+              circle {
+                stroke: #050505;
+              }
+            }
+          }
         }
 
         &.triangle {
           margin-left: 4px;
+
+          &.active {
+            svg {
+              path {
+                stroke: #050505;
+              }
+            }
+          }
         }
       }
     }

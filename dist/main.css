@@ -438,13 +438,20 @@ h6 {
   border-radius: 4px;
   cursor: pointer;
 }
+.game-container .game-table .choose-bet .bet-btn.active {
+  color: #050505;
+  background-color: #ffffff;
+}
+.game-container .game-table .choose-bet .bet-btn.active svg path {
+  fill: #050505;
+}
 .game-container .game-table .choose-bet .bet-btn.small-bet {
   margin-right: 4px;
 }
 .game-container .game-table .choose-bet .bet-btn.big-bet {
   margin-left: 4px;
 }
-.game-container .game-table .choose-bet .bet-btn img {
+.game-container .game-table .choose-bet .bet-btn svg {
   max-width: 24px;
   width: 100%;
   margin-right: 16px;
@@ -490,15 +497,28 @@ h6 {
   border-radius: 4px;
   cursor: pointer;
 }
+.game-container .game-table .options .option.active {
+  color: #050505;
+  background-color: #ffffff;
+}
 .game-container .game-table .options .option.square {
   margin-right: 4px;
+}
+.game-container .game-table .options .option.square.active svg rect {
+  stroke: #050505;
 }
 .game-container .game-table .options .option.circle {
   margin-left: 4px;
   margin-right: 4px;
 }
+.game-container .game-table .options .option.circle.active svg circle {
+  stroke: #050505;
+}
 .game-container .game-table .options .option.triangle {
   margin-left: 4px;
+}
+.game-container .game-table .options .option.triangle.active svg path {
+  stroke: #050505;
 }
 .game-container .game-table .gamble {
   height: 72px;
