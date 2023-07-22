@@ -1,5 +1,7 @@
 // bet option choice
 
+const betOptions = { chosenOption: null, randomOption: null };
+
 const options = document.querySelectorAll(".options div");
 
 options.forEach((option) => {
@@ -7,14 +9,22 @@ options.forEach((option) => {
 });
 
 function handleChosenOption(e) {
-  if (!checkBets()) {
+  const clickedElement = e.currentTarget;
+  betOptions.chosenOption = clickedElement.id;
+}
+
+const gambleBtn = document.querySelector(".gamble-btn");
+
+gambleBtn.addEventListener("click", gamble);
+
+function gamble() {
+  betOptions.randomOption = chooseRandomOption();
+
+  if (!checkBet() || !checkOption()) {
     return;
   }
   if (isTotalMoneyEnough(totalMoney, betSize)) {
-    const clickedElement = e.target;
-    const chosenOption = clickedElement.className;
-    const randomOption = chooseRandomOption();
-    compareOptions(chosenOption, randomOption);
+    compareOptions(betOptions.chosenOption, betOptions.randomOption);
   } else {
     console.log("sorry, you don't have enough money");
   }
@@ -102,9 +112,18 @@ function subtractMoney() {
 
 // check if the bet amount was selected
 
-function checkBets() {
+function checkBet() {
   if (betSize === "") {
     alert("set bet value");
+    return 0;
+  } else return 1;
+}
+
+// check if the bet option was selected
+
+function checkOption() {
+  if (betOptions.chosenOption === null) {
+    alert("choose an option");
     return 0;
   } else return 1;
 }

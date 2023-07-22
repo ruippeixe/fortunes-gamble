@@ -9,11 +9,11 @@ betBtns.forEach((betBtn) => {
   });
 });
 
-const betOptions = document.querySelectorAll(".option");
+const betOptionsBtns = document.querySelectorAll(".option");
 
-betOptions.forEach((optionBtn) => {
+betOptionsBtns.forEach((optionBtn) => {
   optionBtn.addEventListener("click", () => {
-    betOptions.forEach((btn) => btn.classList.remove("active"));
+    betOptionsBtns.forEach((btn) => btn.classList.remove("active"));
     optionBtn.classList.add("active");
   });
 });
