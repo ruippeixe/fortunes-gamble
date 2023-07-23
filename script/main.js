@@ -55,25 +55,22 @@ function compareOptions(playerOption, machineOption) {
 // input values
 
 const userBetForm = document.querySelector("#userBetForm");
+const userBetAmount = document.querySelector("#userBetAmount");
 
 userBetForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  let inputValue = document.querySelector("#userBetAmount");
-  let userBetAmount = inputValue.value;
-
+  
+  const inputValue = userBetAmount.value;
   if (
-    !isNaN(userBetAmount) &&
-    userBetAmount !== "" &&
-    !userBetAmount.includes(" ")
+    !isNaN(inputValue) &&
+    inputValue !== "" &&
+    !inputValue.includes(" ")
   ) {
-    checkMinimumBetAmount(userBetAmount);
-    betSize = parseInt(userBetAmount);
+    checkMinimumBetAmount(inputValue);
+    betSize = parseInt(inputValue);
   } else {
     console.log("Invalid input! Please enter a numeric value.");
   }
-
-  inputValue.value = "";
 });
 
 const smallBet = document.querySelector("#smallBet");
@@ -83,13 +80,14 @@ const bigBet = document.querySelector("#bigBet");
 
 let betSize = "";
 
-smallBet.addEventListener("click", () => {
-  betSize = 10;
-});
+smallBet.addEventListener("click", () => setBetSize(10));
+bigBet.addEventListener("click", () => setBetSize(50));
 
-bigBet.addEventListener("click", () => {
-  betSize = 50;
-});
+function setBetSize(size) {
+  userBetAmount.value = "";
+  userBetAmount.classList.remove("active");
+  betSize = size;
+}
 
 // update total money after the bet
 

@@ -471,6 +471,10 @@ h6 {
   outline: none;
   border-radius: 4px;
 }
+.game-container .game-table .user-set-bet-form .user-set-bet-container .user-set-bet.active {
+  color: #050505;
+  background-color: #ffffff;
+}
 .game-container .game-table .user-set-bet-form .user-set-bet-container .user-set-bet:focus {
   color: #050505;
   background-color: #ffffff;

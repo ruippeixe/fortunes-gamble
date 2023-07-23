@@ -152,6 +152,11 @@
           outline: none;
           border-radius: 4px;
 
+          &.active {
+            color: #050505;
+            background-color: #ffffff;
+          }
+          
           &:focus {
             color: #050505;
             background-color: #ffffff;
