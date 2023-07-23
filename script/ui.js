@@ -4,9 +4,9 @@ const betBtns = document.querySelectorAll(".bet-btn");
 
 betBtns.forEach((betBtn) => {
   betBtn.addEventListener("click", () => {
+    userBetAmount.classList.remove("active"); 
     betBtns.forEach((btn) => btn.classList.remove("active"));
     betBtn.classList.add("active");
-    userBetAmount.classList.remove("active"); 
   });
 });
 
@@ -20,6 +20,6 @@ betOptionsBtns.forEach((optionBtn) => {
 });
 
 userBetAmount.addEventListener("click", () => {
-  userBetAmount.classList.add("active");
   betBtns.forEach((btn) => btn.classList.remove("active"));
+  userBetAmount.classList.add("active");
 });
