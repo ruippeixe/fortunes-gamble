@@ -57,26 +57,38 @@ function compareOptions(playerOption, machineOption) {
 const userBetForm = document.querySelector("#userBetForm");
 const userBetAmount = document.querySelector("#userBetAmount");
 
+userBetAmount.addEventListener("click", () => {
+  betSize = "";
+});
+
+userBetAmount.addEventListener("blur", () => {
+  verifyBetAmount(userBetAmount.value);
+});
+
 userBetForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  
-  const inputValue = userBetAmount.value;
+  verifyBetAmount(userBetAmount.value);
+});
+
+function verifyBetAmount(userBetAmount) {
+  const inputValue = userBetAmount;
+
   if (
     !isNaN(inputValue) &&
     inputValue !== "" &&
-    !inputValue.includes(" ")
+    !inputValue.includes(" ") &&
+    checkMinimumBetAmount(inputValue)
   ) {
-    checkMinimumBetAmount(inputValue);
     betSize = parseInt(inputValue);
   } else {
     console.log("Invalid input! Please enter a numeric value.");
   }
-});
+}
+
+// choose the bet size
 
 const smallBet = document.querySelector("#smallBet");
 const bigBet = document.querySelector("#bigBet");
-
-// choose the bet size
 
 let betSize = "";
 
