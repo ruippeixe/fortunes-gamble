@@ -23,3 +23,15 @@ userBetAmount.addEventListener("click", () => {
   betBtns.forEach((btn) => btn.classList.remove("active"));
   userBetAmount.classList.add("active");
 });
+
+// wallet info screen
+
+const wallet = document.querySelector(".wallet-info .total");
+
+function updateWalletInfo() {
+  wallet.textContent = formatNumberWithSpaces(totalMoney);
+}
+
+function formatNumberWithSpaces(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}

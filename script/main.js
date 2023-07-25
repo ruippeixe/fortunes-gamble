@@ -15,9 +15,7 @@ function handleChosenOption(e) {
 
 const gambleBtn = document.querySelector(".gamble-btn");
 
-gambleBtn.addEventListener("click", gamble);
-
-function gamble() {
+gambleBtn.addEventListener("click", () => {
   betOptions.randomOption = chooseRandomOption();
 
   if (!checkBet() || !checkOption()) {
@@ -28,7 +26,7 @@ function gamble() {
   } else {
     console.log("sorry, you don't have enough money");
   }
-}
+});
 
 function chooseRandomOption() {
   const randomOption = Math.floor(Math.random() * 37);
@@ -71,15 +69,13 @@ userBetForm.addEventListener("submit", (e) => {
 });
 
 function verifyBetAmount(userBetAmount) {
-  const inputValue = userBetAmount;
-
   if (
-    !isNaN(inputValue) &&
-    inputValue !== "" &&
-    !inputValue.includes(" ") &&
-    checkMinimumBetAmount(inputValue)
+    !isNaN(userBetAmount) &&
+    userBetAmount !== "" &&
+    !userBetAmount.includes(" ") &&
+    checkMinimumBetAmount(userBetAmount)
   ) {
-    betSize = parseInt(inputValue);
+    betSize = parseInt(userBetAmount);
   } else {
     console.log("Invalid input! Please enter a numeric value.");
   }
@@ -103,20 +99,23 @@ function setBetSize(size) {
 
 // update total money after the bet
 
-let totalMoney = 50;
+let totalMoney = 500;
 
 function addExtraMoney() {
   totalMoney += betSize * 37;
+  updateWalletInfo()
   console.log("mega win! ", totalMoney);
 }
 
 function addMoney() {
   totalMoney += betSize;
+  updateWalletInfo()
   console.log("win! ", totalMoney);
 }
 
 function subtractMoney() {
   totalMoney -= betSize;
+  updateWalletInfo()
   console.log("lose ", totalMoney);
 }
 
@@ -154,3 +153,12 @@ function checkMinimumBetAmount(amount) {
   }
   return true;
 }
+
+// reset button
+
+const gameReset = document.querySelector(".game-reset");
+
+gameReset.addEventListener("click", () => {
+  totalMoney = 500;
+  updateWalletInfo();
+});
