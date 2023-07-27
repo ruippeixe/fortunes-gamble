@@ -1,3 +1,5 @@
+const EXTRA_MULTIPLIER = 37;
+
 // bet option choice
 
 const betOptions = { chosenOption: null, randomOption: null };
@@ -41,13 +43,23 @@ function chooseRandomOption() {
 }
 
 function compareOptions(playerOption, machineOption) {
+  let resultType;
+  let betSizeResultValue;
+
   if (playerOption === machineOption && machineOption === "circle") {
     addExtraMoney();
+    resultType = "winExtra";
+    betSizeResultValue = betSize * EXTRA_MULTIPLIER;
   } else if (playerOption === machineOption) {
     addMoney();
+    resultType = "win";
+    betSizeResultValue = betSize;
   } else {
     subtractMoney();
+    resultType = "lose";
+    betSizeResultValue = betSize;
   }
+  updateScreenInfo(machineOption, resultType, betSizeResultValue);
 }
 
 // input values
@@ -102,20 +114,23 @@ function setBetSize(size) {
 let totalMoney = 500;
 
 function addExtraMoney() {
-  totalMoney += betSize * 37;
-  updateWalletInfo()
+  let result = betSize * EXTRA_MULTIPLIER;
+  totalMoney += result;
+  updateWalletInfo();
   console.log("mega win! ", totalMoney);
 }
 
 function addMoney() {
-  totalMoney += betSize;
-  updateWalletInfo()
+  let result = betSize;
+  totalMoney += result;
+  updateWalletInfo();
   console.log("win! ", totalMoney);
 }
 
 function subtractMoney() {
-  totalMoney -= betSize;
-  updateWalletInfo()
+  let result = betSize;
+  totalMoney -= result;
+  updateWalletInfo();
   console.log("lose ", totalMoney);
 }
 

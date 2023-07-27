@@ -24,7 +24,7 @@ userBetAmount.addEventListener("click", () => {
   userBetAmount.classList.add("active");
 });
 
-// wallet info screen
+// wallet info
 
 const wallet = document.querySelector(".wallet-info .total");
 
@@ -32,6 +32,26 @@ function updateWalletInfo() {
   wallet.textContent = formatNumberWithSpaces(totalMoney);
 }
 
-function formatNumberWithSpaces(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+// info screen
+
+function updateScreenInfo(symbol, resultType, betSizeResultValue) {
+  const symbolImage = document.querySelector("#symbol");
+  const actionScreen = document.querySelector(".action-screen");
+  const screenValue = document.querySelector(".bet .value");
+  const operator = document.querySelector(".bet .operator");
+  const currency = document.querySelector(".bet .currency");
+
+  symbolImage.src = `imgs/${symbol}.svg`;
+
+  if (resultType === "winExtra" || resultType === "win") {
+    actionScreen.classList.remove("lose");
+    actionScreen.classList.add("win");
+    operator.textContent = "+";
+  } else if (resultType === "lose") {
+    actionScreen.classList.remove("win");
+    actionScreen.classList.add("lose");
+    operator.textContent = "-";
+  }
+  screenValue.textContent = formatNumberWithSpaces(betSizeResultValue);
+  currency.textContent = "€";
 }
