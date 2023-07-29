@@ -55,3 +55,16 @@ function updateScreenInfo(symbol, resultType, betSizeResultValue) {
   screenValue.textContent = formatNumberWithSpaces(betSizeResultValue);
   currency.textContent = "€";
 }
+
+function toggleScreens(addActiveClass) {
+  const waitingScreen = document.querySelector(".waiting-screen");
+  const actionScreen = document.querySelector(".action-screen");
+
+  waitingScreen.classList.add("active");
+  actionScreen.classList.remove("active");
+
+  if (addActiveClass) {
+    waitingScreen.classList.remove("active");
+    actionScreen.classList.add("active");
+  }
+}

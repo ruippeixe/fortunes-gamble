@@ -19,7 +19,7 @@ const gambleBtn = document.querySelector(".gamble-btn");
 
 gambleBtn.addEventListener("click", () => {
   betOptions.randomOption = chooseRandomOption();
-
+  
   if (!checkBet() || !checkOption()) {
     return;
   }
@@ -28,6 +28,8 @@ gambleBtn.addEventListener("click", () => {
   } else {
     console.log("sorry, you don't have enough money");
   }
+
+  toggleScreens(true);
 });
 
 function chooseRandomOption() {
@@ -176,4 +178,5 @@ const gameReset = document.querySelector(".game-reset");
 gameReset.addEventListener("click", () => {
   totalMoney = 500;
   updateWalletInfo();
+  toggleScreens(false);
 });
