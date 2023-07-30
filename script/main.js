@@ -19,7 +19,7 @@ const gambleBtn = document.querySelector(".gamble-btn");
 
 gambleBtn.addEventListener("click", () => {
   betOptions.randomOption = chooseRandomOption();
-  
+
   if (!checkBet() || !checkOption()) {
     return;
   }
@@ -178,5 +178,17 @@ const gameReset = document.querySelector(".game-reset");
 gameReset.addEventListener("click", () => {
   totalMoney = 500;
   updateWalletInfo();
+
+  betBtns.forEach((betBtn) => {
+    betBtn.classList.remove("active");
+  });
+
+  options.forEach((option) => {
+    option.classList.remove("active");
+  });
+
   toggleScreens(false);
+  
+  betOptions.chosenOption = null;
+  betOptions.randomOption = null;
 });
