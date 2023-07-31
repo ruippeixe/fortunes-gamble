@@ -188,7 +188,12 @@ gameReset.addEventListener("click", () => {
   });
 
   toggleScreens(false);
-  
+
   betOptions.chosenOption = null;
   betOptions.randomOption = null;
+
+  userBetAmount.value = "";
+  userBetAmount.classList.remove("active");
+
+  betSize = "";
 });
