@@ -138,20 +138,41 @@ function subtractMoney() {
 
 // check if the bet amount was selected
 
+let checkBetMessage = false;
+
 function checkBet() {
   if (betSize === "") {
-    alert("set bet value");
+    if (!checkBetMessage)
+    {
+      createInfoMessageElement("set bet value", "check-bet");
+      checkBetMessage = true;
+    }
     return 0;
-  } else return 1;
+  } else {
+    checkBetMessage = false;
+    return 1;
+  }
 }
 
 // check if the bet option was selected
 
+let checkOptionMessage = false;
+
 function checkOption() {
+  const screen = document.querySelector(".info-screen.check-bet");
+
   if (betOptions.chosenOption === null) {
-    alert("choose an option");
+    if (!checkOptionMessage)
+    {
+      createInfoMessageElement("choose an option", "check-option");
+      checkOptionMessage = true;
+    }
+    // screen.remove();
     return 0;
-  } else return 1;
+  } else {
+    checkOptionMessage = false;
+    return 1;
+  }
 }
 
 // check if the total amount of money is enough to bet

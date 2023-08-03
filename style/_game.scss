@@ -24,7 +24,6 @@
       flex-direction: column;
       height: 114px;
       margin-bottom: 8px;
-      line-height: 0;
       background-color: #4d4d4d;
       border-radius: 4px;
 
@@ -75,6 +74,7 @@
           align-items: center;
           justify-content: center;
           height: 100%;
+          flex-direction: row;
           font-size: 2rem;
           font-weight: 700;
           color: #050505;
@@ -83,6 +83,21 @@
             margin-right: 4px;
             margin-left: 4px;
           }
+        }
+      }
+
+      .info-screen {
+        display: flex;
+        height: 100%;
+        padding: 16px;
+
+        .info {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          width: 100%;
+          color: #b3b3b3;
         }
       }
     }

@@ -4,7 +4,7 @@ const betBtns = document.querySelectorAll(".bet-btn");
 
 betBtns.forEach((betBtn) => {
   betBtn.addEventListener("click", () => {
-    userBetAmount.classList.remove("active"); 
+    userBetAmount.classList.remove("active");
     betBtns.forEach((btn) => btn.classList.remove("active"));
     betBtn.classList.add("active");
   });
@@ -67,4 +67,21 @@ function toggleScreens(addActiveClass) {
     waitingScreen.classList.remove("active");
     actionScreen.classList.add("active");
   }
+}
+
+// create info element to show warnings
+
+function createInfoMessageElement(text, infoClass) {
+  const screen = document.querySelector(".screen");
+
+  const div = document.createElement("div");
+  const p = document.createElement("p");
+
+  div.classList.add("info-screen", infoClass);
+  p.classList.add("info");
+
+  p.textContent = text;
+
+  div.appendChild(p);
+  screen.appendChild(div);
 }

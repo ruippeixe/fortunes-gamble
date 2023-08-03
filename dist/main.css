@@ -376,7 +376,6 @@ h6 {
   flex-direction: column;
   height: 114px;
   margin-bottom: 8px;
-  line-height: 0;
   background-color: #4d4d4d;
   border-radius: 4px;
 }
@@ -420,6 +419,7 @@ h6 {
   align-items: center;
   justify-content: center;
   height: 100%;
+  flex-direction: row;
   font-size: 2rem;
   font-weight: 700;
   color: #050505;
@@ -427,6 +427,19 @@ h6 {
 .game-container .game-table .screen .action-screen .bet .value {
   margin-right: 4px;
   margin-left: 4px;
+}
+.game-container .game-table .screen .info-screen {
+  display: flex;
+  height: 100%;
+  padding: 16px;
+}
+.game-container .game-table .screen .info-screen .info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  color: #b3b3b3;
 }
 .game-container .game-table .wallet {
   display: flex;
