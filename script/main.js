@@ -107,6 +107,7 @@ bigBet.addEventListener("click", () => setBetSize(50));
 
 function setBetSize(size) {
   userBetAmount.value = "";
+  checkBetMessage = true;
   userBetAmount.classList.remove("active");
   betSize = size;
 }
@@ -141,13 +142,16 @@ function subtractMoney() {
 let checkBetMessage = false;
 
 function checkBet() {
+  const waitingScreen = document.querySelector(".waiting-screen");
+
   if (betSize === "") {
     if (!checkBetMessage)
     {
+      waitingScreen.classList.remove("active");
       createInfoMessageElement("set bet value", "check-bet");
       checkBetMessage = true;
+      return 0;
     }
-    return 0;
   } else {
     checkBetMessage = false;
     return 1;
@@ -159,15 +163,20 @@ function checkBet() {
 let checkOptionMessage = false;
 
 function checkOption() {
-  const screen = document.querySelector(".info-screen.check-bet");
+  const screenCheckBet = document.querySelector('.info-screen.check-bet');
+  const waitingScreen = document.querySelector(".waiting-screen");
 
   if (betOptions.chosenOption === null) {
+
+    if (!checkBetMessage && !checkOptionMessage)
+      screenCheckBet.remove();
+
     if (!checkOptionMessage)
     {
+      waitingScreen.classList.remove("active");
       createInfoMessageElement("choose an option", "check-option");
       checkOptionMessage = true;
     }
-    // screen.remove();
     return 0;
   } else {
     checkOptionMessage = false;
