@@ -1,8 +1,8 @@
 const EXTRA_MULTIPLIER = 37;
 
-// bet option choice
-
 const betOptions = { chosenOption: null, randomOption: null };
+
+// bet option choices and comparisons
 
 const options = document.querySelectorAll(".options div");
 
@@ -14,23 +14,6 @@ function handleChosenOption(e) {
   const clickedElement = e.currentTarget;
   betOptions.chosenOption = clickedElement.id;
 }
-
-const gambleBtn = document.querySelector(".gamble-btn");
-
-gambleBtn.addEventListener("click", () => {
-  betOptions.randomOption = chooseRandomOption();
-
-  if (!checkBet() || !checkOption()) {
-    return;
-  }
-  if (isTotalMoneyEnough(totalMoney, betSize)) {
-    compareOptions(betOptions.chosenOption, betOptions.randomOption);
-  } else {
-    console.log("sorry, you don't have enough money");
-  }
-
-  toggleScreens(true);
-});
 
 function chooseRandomOption() {
   const randomOption = Math.floor(Math.random() * 37);
@@ -63,6 +46,25 @@ function compareOptions(playerOption, machineOption) {
   }
   updateScreenInfo(machineOption, resultType, betSizeResultValue);
 }
+
+// gamble button
+
+const gambleBtn = document.querySelector(".gamble-btn");
+
+gambleBtn.addEventListener("click", () => {
+  betOptions.randomOption = chooseRandomOption();
+
+  if (!checkBet() || !checkOption()) {
+    return;
+  }
+  if (isTotalMoneyEnough(totalMoney, betSize)) {
+    compareOptions(betOptions.chosenOption, betOptions.randomOption);
+  } else {
+    console.log("sorry, you don't have enough money");
+  }
+
+  toggleScreens(true);
+});
 
 // input values
 
@@ -107,7 +109,6 @@ bigBet.addEventListener("click", () => setBetSize(50));
 
 function setBetSize(size) {
   userBetAmount.value = "";
-  checkBetMessage = true;
   userBetAmount.classList.remove("active");
   betSize = size;
 }
@@ -139,47 +140,24 @@ function subtractMoney() {
 
 // check if the bet amount was selected
 
-let checkBetMessage = false;
-
 function checkBet() {
-  const waitingScreen = document.querySelector(".waiting-screen");
-
   if (betSize === "") {
-    if (!checkBetMessage)
-    {
-      waitingScreen.classList.remove("active");
-      createInfoMessageElement("set bet value", "check-bet");
-      checkBetMessage = true;
-      return 0;
-    }
+    updateScreenWithWarningMessage("isCheckBet");
+    // console.log("set bet value");
+    return 0;
   } else {
-    checkBetMessage = false;
     return 1;
   }
 }
 
 // check if the bet option was selected
 
-let checkOptionMessage = false;
-
 function checkOption() {
-  const screenCheckBet = document.querySelector('.info-screen.check-bet');
-  const waitingScreen = document.querySelector(".waiting-screen");
-
   if (betOptions.chosenOption === null) {
-
-    if (!checkBetMessage && !checkOptionMessage)
-      screenCheckBet.remove();
-
-    if (!checkOptionMessage)
-    {
-      waitingScreen.classList.remove("active");
-      createInfoMessageElement("choose an option", "check-option");
-      checkOptionMessage = true;
-    }
+    updateScreenWithWarningMessage("isCheckOption");
+    // console.log("choose an option");
     return 0;
   } else {
-    checkOptionMessage = false;
     return 1;
   }
 }

@@ -59,6 +59,7 @@ function updateScreenInfo(symbol, resultType, betSizeResultValue) {
 function toggleScreens(addActiveClass) {
   const waitingScreen = document.querySelector(".waiting-screen");
   const actionScreen = document.querySelector(".action-screen");
+  const infoScreen = document.querySelector(".info-screen");
 
   waitingScreen.classList.add("active");
   actionScreen.classList.remove("active");
@@ -67,21 +68,51 @@ function toggleScreens(addActiveClass) {
     waitingScreen.classList.remove("active");
     actionScreen.classList.add("active");
   }
+
+  if (infoScreen) infoScreen.remove();
 }
 
 // create info element to show warnings
 
-function createInfoMessageElement(text, infoClass) {
+function createInfoMessageElement(text) {
   const screen = document.querySelector(".screen");
 
   const div = document.createElement("div");
   const p = document.createElement("p");
 
-  div.classList.add("info-screen", infoClass);
+  div.classList.add("info-screen");
   p.classList.add("info");
 
   p.textContent = text;
 
   div.appendChild(p);
   screen.appendChild(div);
+}
+
+// show warning messages on the screen
+
+let checkBetMessage = false;
+let checkOptionMessage = false;
+
+function updateScreenWithWarningMessage(option) {
+  const waitingScreen = document.querySelector(".waiting-screen");
+  const infoScreen = document.querySelector(".info-screen");
+
+  if (option == "isCheckBet") {
+    if (!checkBetMessage) {
+      createInfoMessageElement("set bet value");
+      checkBetMessage = true;
+      waitingScreen.classList.remove("active");
+    }
+  }
+
+  if (option == "isCheckOption") {
+    if (checkBetMessage && !checkOptionMessage) infoScreen.remove();
+
+    if (!checkOptionMessage) {
+      createInfoMessageElement("choose an option");
+      checkOptionMessage = true;
+      waitingScreen.classList.remove("active");
+    }
+  }
 }
