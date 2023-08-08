@@ -62,7 +62,6 @@ gambleBtn.addEventListener("click", () => {
   } else {
     console.log("sorry, you don't have enough money");
   }
-
   toggleScreens(true);
 });
 
@@ -93,6 +92,9 @@ function verifyBetAmount(userBetAmount) {
   ) {
     betSize = parseInt(userBetAmount);
   } else {
+    showWarningMessage("setBetMsg");
+
+    betSize = "";
     console.log("Invalid input! Please enter a numeric value.");
   }
 }
@@ -142,8 +144,9 @@ function subtractMoney() {
 
 function checkBet() {
   if (betSize === "") {
-    updateScreenWithWarningMessage("isCheckBet");
-    // console.log("set bet value");
+    showWarningMessage("checkBetMsg");
+
+    console.log("set bet value");
     return 0;
   } else {
     return 1;
@@ -154,8 +157,9 @@ function checkBet() {
 
 function checkOption() {
   if (betOptions.chosenOption === null) {
-    updateScreenWithWarningMessage("isCheckOption");
-    // console.log("choose an option");
+    showWarningMessage("checkOptionMsg");
+
+    console.log("choose an option");
     return 0;
   } else {
     return 1;

@@ -74,13 +74,13 @@ function toggleScreens(addActiveClass) {
 
 // create info element to show warnings
 
-function createInfoMessageElement(text) {
+function createInfoMessageElement(text, className) {
   const screen = document.querySelector(".screen");
 
   const div = document.createElement("div");
   const p = document.createElement("p");
 
-  div.classList.add("info-screen");
+  div.classList.add("info-screen", className);
   p.classList.add("info");
 
   p.textContent = text;
@@ -91,27 +91,42 @@ function createInfoMessageElement(text) {
 
 // show warning messages on the screen
 
-let checkBetMessage = false;
-let checkOptionMessage = false;
-
-function updateScreenWithWarningMessage(option) {
+function showWarningMessage(msg) {
   const waitingScreen = document.querySelector(".waiting-screen");
-  const infoScreen = document.querySelector(".info-screen");
+  const actionScreen = document.querySelector(".action-screen");
 
-  if (option == "isCheckBet") {
-    if (!checkBetMessage) {
-      createInfoMessageElement("set bet value");
-      checkBetMessage = true;
+  const checkBetType = document.querySelector(".check-bet");
+  const checkOptionType = document.querySelector(".check-option");
+  const setBetType = document.querySelector(".set-bet");
+
+  if (actionScreen.classList.contains("active"))
+    actionScreen.classList.remove("active");
+
+  if (msg === "setBetMsg") {
+    if (checkOptionType) checkOptionType.remove();
+    if (checkBetType) checkBetType.remove();
+
+    if (!setBetType) {
+      createInfoMessageElement("Invalid input! Please enter a numeric value.", "set-bet");
       waitingScreen.classList.remove("active");
     }
   }
 
-  if (option == "isCheckOption") {
-    if (checkBetMessage && !checkOptionMessage) infoScreen.remove();
+  else if (msg === "checkBetMsg") {
+    if (checkOptionType) checkOptionType.remove();
 
-    if (!checkOptionMessage) {
-      createInfoMessageElement("choose an option");
-      checkOptionMessage = true;
+    if (!checkBetType && !setBetType) {
+      createInfoMessageElement("set bet value", "check-bet");
+      waitingScreen.classList.remove("active");
+    }
+  }
+
+  else if (msg === "checkOptionMsg") {
+    if (checkBetType) checkBetType.remove();
+    if (setBetType) setBetType.remove();
+
+    if (!checkOptionType) {
+      createInfoMessageElement("choose an option", "check-option");
       waitingScreen.classList.remove("active");
     }
   }
