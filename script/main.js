@@ -1,3 +1,4 @@
+const MIN_BET = 2;
 const EXTRA_MULTIPLIER = 37;
 
 const betOptions = { chosenOption: null, randomOption: null };
@@ -16,7 +17,7 @@ function handleChosenOption(e) {
 }
 
 function chooseRandomOption() {
-  const randomOption = Math.floor(Math.random() * 37);
+  const randomOption = Math.floor(Math.random() * EXTRA_MULTIPLIER);
 
   if (randomOption === 0) {
     return "circle";
@@ -54,13 +55,18 @@ const gambleBtn = document.querySelector(".gamble-btn");
 gambleBtn.addEventListener("click", () => {
   betOptions.randomOption = chooseRandomOption();
 
-  if (!checkBet() || !checkOption()) {
-    return;
-  }
-  if (isTotalMoneyEnough(totalMoney, betSize)) {
+  if (!isMinimumBetAmount) {
+    return showWarningMessage("minimumBetAmount");
+  } else if (!isBetAmountValidInput) {
+    return showWarningMessage("betAmountInput");
+  } else if (!checkBet()) {
+    return showWarningMessage("setBetValue");
+  } else if (!checkOption()) {
+    return showWarningMessage("checkOption");
+  } else if (isTotalMoneyEnough(totalMoney, betSize)) {
     compareOptions(betOptions.chosenOption, betOptions.randomOption);
   } else {
-    console.log("sorry, you don't have enough money");
+    return showWarningMessage("notEnoughMoney");
   }
   toggleScreens(true);
 });
@@ -75,6 +81,8 @@ userBetAmount.addEventListener("click", () => {
 });
 
 userBetAmount.addEventListener("blur", () => {
+  isBetAmountValidInput = true;
+  isMinimumBetAmount = true;
   verifyBetAmount(userBetAmount.value);
 });
 
@@ -82,6 +90,8 @@ userBetForm.addEventListener("submit", (e) => {
   e.preventDefault();
   verifyBetAmount(userBetAmount.value);
 });
+
+let isBetAmountValidInput = true;
 
 function verifyBetAmount(userBetAmount) {
   if (
@@ -91,11 +101,10 @@ function verifyBetAmount(userBetAmount) {
     checkMinimumBetAmount(userBetAmount)
   ) {
     betSize = parseInt(userBetAmount);
+    isBetAmountValidInput = true;
   } else {
-    showWarningMessage("setBetMsg");
-
     betSize = "";
-    console.log("Invalid input! Please enter a numeric value.");
+    isBetAmountValidInput = false;
   }
 }
 
@@ -113,6 +122,8 @@ function setBetSize(size) {
   userBetAmount.value = "";
   userBetAmount.classList.remove("active");
   betSize = size;
+  isBetAmountValidInput = true;
+  isMinimumBetAmount = true;
 }
 
 // update total money after the bet
@@ -144,9 +155,6 @@ function subtractMoney() {
 
 function checkBet() {
   if (betSize === "") {
-    showWarningMessage("checkBetMsg");
-
-    console.log("set bet value");
     return 0;
   } else {
     return 1;
@@ -157,9 +165,6 @@ function checkBet() {
 
 function checkOption() {
   if (betOptions.chosenOption === null) {
-    showWarningMessage("checkOptionMsg");
-
-    console.log("choose an option");
     return 0;
   } else {
     return 1;
@@ -175,12 +180,16 @@ function isTotalMoneyEnough(total, bet) {
 
 // minimum bet amount
 
+let isMinimumBetAmount = true;
+
 function checkMinimumBetAmount(amount) {
-  if (amount < 2) {
-    console.log("Minimum bet amount not met!");
+  if (amount < MIN_BET) {
+    isMinimumBetAmount = false;
     return false;
+  } else {
+    isMinimumBetAmount = true;
+    return true;
   }
-  return true;
 }
 
 // reset button
@@ -208,4 +217,7 @@ gameReset.addEventListener("click", () => {
   userBetAmount.classList.remove("active");
 
   betSize = "";
+
+  isBetAmountValidInput = true;
+  isMinimumBetAmount = true;
 });

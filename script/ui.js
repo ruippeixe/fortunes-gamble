@@ -74,13 +74,13 @@ function toggleScreens(addActiveClass) {
 
 // create info element to show warnings
 
-function createInfoMessageElement(text, className) {
+function createInfoMessageElement(text) {
   const screen = document.querySelector(".screen");
 
   const div = document.createElement("div");
   const p = document.createElement("p");
 
-  div.classList.add("info-screen", className);
+  div.classList.add("info-screen");
   p.classList.add("info");
 
   p.textContent = text;
@@ -94,40 +94,29 @@ function createInfoMessageElement(text, className) {
 function showWarningMessage(msg) {
   const waitingScreen = document.querySelector(".waiting-screen");
   const actionScreen = document.querySelector(".action-screen");
+  const infoScreen = document.querySelector(".info-screen");
 
-  const checkBetType = document.querySelector(".check-bet");
-  const checkOptionType = document.querySelector(".check-option");
-  const setBetType = document.querySelector(".set-bet");
-
-  if (actionScreen.classList.contains("active"))
+  if (actionScreen.classList.contains("active")) {
     actionScreen.classList.remove("active");
-
-  if (msg === "setBetMsg") {
-    if (checkOptionType) checkOptionType.remove();
-    if (checkBetType) checkBetType.remove();
-
-    if (!setBetType) {
-      createInfoMessageElement("Invalid input! Please enter a numeric value.", "set-bet");
-      waitingScreen.classList.remove("active");
-    }
   }
 
-  else if (msg === "checkBetMsg") {
-    if (checkOptionType) checkOptionType.remove();
-
-    if (!checkBetType && !setBetType) {
-      createInfoMessageElement("set bet value", "check-bet");
-      waitingScreen.classList.remove("active");
-    }
+  if (waitingScreen) {
+    waitingScreen.classList.remove("active");
   }
 
-  else if (msg === "checkOptionMsg") {
-    if (checkBetType) checkBetType.remove();
-    if (setBetType) setBetType.remove();
+  if (infoScreen) {
+    infoScreen.remove();
+  }
 
-    if (!checkOptionType) {
-      createInfoMessageElement("choose an option", "check-option");
-      waitingScreen.classList.remove("active");
-    }
+  if (msg == "minimumBetAmount") {
+    createInfoMessageElement("The minimum bet amount wasn't met.");
+  } else if (msg == "betAmountInput") {
+    createInfoMessageElement("Invalid input. Please enter a numeric value.");
+  } else if (msg == "setBetValue") {
+    createInfoMessageElement("Please, set the bet value.");
+  } else if (msg == "checkOption") {
+    createInfoMessageElement("Please, choose an option.");
+  } else if (msg == "notEnoughMoney") {
+    createInfoMessageElement("Sorry, you don't have enough money.");
   }
 }
