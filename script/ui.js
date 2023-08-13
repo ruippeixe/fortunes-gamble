@@ -120,3 +120,32 @@ function showWarningMessage(msg) {
     createInfoMessageElement("Sorry, you don't have enough money.");
   }
 }
+
+// welcome and help page and help button
+
+mainPlayBtn = document.querySelector("#mainPlay");
+secondPlayBtn = document.querySelector("#secondPlay");
+rulesBtn = document.querySelector("#rules");
+helpBtn = document.querySelector("#help");
+welcomePage = document.querySelector(".welcome");
+helpPage = document.querySelector(".help-page");
+
+mainPlayBtn.addEventListener("click", () => {
+  welcomePage.classList.remove("active");
+  helpBtn.classList.add("active");
+});
+
+secondPlayBtn.addEventListener("click", () => {
+  helpPage.classList.remove("active");
+  helpBtn.classList.add("active");
+});
+
+rulesBtn.addEventListener("click", () => {
+  welcomePage.classList.remove("active");
+  helpPage.classList.add("active");
+});
+
+helpBtn.addEventListener("click", () => {
+  helpBtn.classList.remove("active");
+  helpPage.classList.add("active");
+});

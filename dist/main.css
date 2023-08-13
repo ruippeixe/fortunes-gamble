@@ -401,10 +401,10 @@ h6 {
 .game-container .game-table .welcome.active .btn.inverse {
   margin-bottom: 8px;
 }
-.game-container .game-table .help {
+.game-container .game-table .help-page {
   display: none;
 }
-.game-container .game-table .help.active {
+.game-container .game-table .help-page.active {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -416,14 +416,14 @@ h6 {
   border-radius: 4px;
   background-color: #ffffff;
 }
-.game-container .game-table .help.active .para {
+.game-container .game-table .help-page.active .para {
   margin-bottom: 8px;
   line-height: 21px;
 }
-.game-container .game-table .help.active .para .number {
+.game-container .game-table .help-page.active .para .number {
   margin-right: 4px;
 }
-.game-container .game-table .help.active .para .bold {
+.game-container .game-table .help-page.active .para .bold {
   font-weight: 700;
 }
 .game-container .game-table .screen {
@@ -651,7 +651,11 @@ h6 {
   color: #ffffff;
   cursor: pointer;
 }
-.game-container .game-table .reset {
+.game-container .game-table .help {
+  display: none;
+}
+.game-container .game-table .help.active {
+  display: block;
   position: absolute;
   top: 0;
   left: 100%;
@@ -664,7 +668,7 @@ h6 {
   border-radius: 4px;
   cursor: pointer;
 }
-.game-container .game-table .reset img {
+.game-container .game-table .help.active img {
   max-width: 16px;
   width: 100%;
 }
