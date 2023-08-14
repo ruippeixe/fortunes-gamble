@@ -129,20 +129,34 @@ rulesBtn = document.querySelector("#rules");
 helpBtn = document.querySelector("#help");
 welcomePage = document.querySelector(".welcome");
 helpPage = document.querySelector(".help-page");
+welcomePageActive = document.querySelector(".welcome.active");
 
 mainPlayBtn.addEventListener("click", () => {
-  welcomePage.classList.remove("active");
-  helpBtn.classList.add("active");
+  welcomePageActive.style.opacity = "0";
+
+  welcomePageActive.addEventListener("transitionend", () => {
+    welcomePage.classList.remove("active");
+    helpBtn.classList.add("active");
+  });
 });
 
 secondPlayBtn.addEventListener("click", () => {
-  helpPage.classList.remove("active");
-  helpBtn.classList.add("active");
+  helpPageActive = document.querySelector(".help-page.active");
+  helpPageActive.style.opacity = "0";
+
+  helpPageActive.addEventListener("transitionend", () => {
+    helpPage.classList.remove("active");
+    helpBtn.classList.add("active");
+  });
 });
 
 rulesBtn.addEventListener("click", () => {
-  welcomePage.classList.remove("active");
+  welcomePageActive.style.opacity = "0";
   helpPage.classList.add("active");
+
+  welcomePageActive.addEventListener("transitionend", () => {
+    welcomePage.classList.remove("active");
+  });
 });
 
 helpBtn.addEventListener("click", () => {
