@@ -112,7 +112,7 @@ function showWarningMessage(msg) {
   }
 
   if (msg == "minimumBetAmount") {
-    createInfoMessageElement("The minimum bet amount wasn't met.");
+    createInfoMessageElement(`Sorry, you didn't bet enough. The minimum is ${MIN_BET}.`);
   } else if (msg == "betAmountInput") {
     createInfoMessageElement("Invalid input. Please enter a numeric value.");
   } else if (msg == "setBetValue") {
