@@ -550,6 +550,7 @@ h6 {
   background-color: #4d4d4d;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease;
 }
 .game-container .game-table .choose-bet .bet-btn.active {
   color: #050505;
@@ -557,6 +558,7 @@ h6 {
 }
 .game-container .game-table .choose-bet .bet-btn.active svg path {
   fill: #050505;
+  transition: fill 200ms ease;
 }
 .game-container .game-table .choose-bet .bet-btn.small-bet {
   margin-right: 4px;
@@ -575,6 +577,14 @@ h6 {
 .game-container .game-table .user-set-bet-form .user-set-bet-container {
   position: relative;
 }
+.game-container .game-table .user-set-bet-form .user-set-bet-container.active .user-set-bet {
+  color: #050505;
+  background-color: #ffffff;
+}
+.game-container .game-table .user-set-bet-form .user-set-bet-container.active .user-set-bet-icon path {
+  fill: #050505;
+  transition: fill 200ms ease;
+}
 .game-container .game-table .user-set-bet-form .user-set-bet-container .user-set-bet {
   width: 100%;
   height: 40px;
@@ -584,10 +594,7 @@ h6 {
   border: none;
   outline: none;
   border-radius: 4px;
-}
-.game-container .game-table .user-set-bet-form .user-set-bet-container .user-set-bet.active {
-  color: #050505;
-  background-color: #ffffff;
+  transition: background-color 200ms ease, color 200ms ease;
 }
 .game-container .game-table .user-set-bet-form .user-set-bet-container .user-set-bet:focus {
   color: #050505;
@@ -613,6 +620,7 @@ h6 {
   background-color: #4d4d4d;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease;
 }
 .game-container .game-table .options .option.active {
   color: #050505;
@@ -623,6 +631,7 @@ h6 {
 }
 .game-container .game-table .options .option.square.active svg rect {
   stroke: #050505;
+  transition: stroke 200ms ease;
 }
 .game-container .game-table .options .option.circle {
   margin-left: 4px;
@@ -630,12 +639,14 @@ h6 {
 }
 .game-container .game-table .options .option.circle.active svg circle {
   stroke: #050505;
+  transition: stroke 200ms ease;
 }
 .game-container .game-table .options .option.triangle {
   margin-left: 4px;
 }
 .game-container .game-table .options .option.triangle.active svg path {
   stroke: #050505;
+  transition: stroke 200ms ease;
 }
 .game-container .game-table .gamble {
   height: 72px;

@@ -214,7 +214,7 @@ gameReset.addEventListener("click", () => {
   betOptions.randomOption = null;
 
   userBetAmount.value = "";
-  userBetAmount.classList.remove("active");
+  userSetBetContainer.classList.remove("active");
 
   betSize = "";
 

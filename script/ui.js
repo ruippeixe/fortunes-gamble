@@ -1,10 +1,11 @@
 // toggle the 'active' class for the buttons on click
 
 const betBtns = document.querySelectorAll(".bet-btn");
+const userSetBetContainer = document.querySelector(".user-set-bet-container");
 
 betBtns.forEach((betBtn) => {
   betBtn.addEventListener("click", () => {
-    userBetAmount.classList.remove("active");
+    userSetBetContainer.classList.remove("active");
     betBtns.forEach((btn) => btn.classList.remove("active"));
     betBtn.classList.add("active");
   });
@@ -19,9 +20,9 @@ betOptionsBtns.forEach((optionBtn) => {
   });
 });
 
-userBetAmount.addEventListener("click", () => {
+userSetBetContainer.addEventListener("click", () => {
   betBtns.forEach((btn) => btn.classList.remove("active"));
-  userBetAmount.classList.add("active");
+  userSetBetContainer.classList.add("active");
 });
 
 // wallet info
@@ -141,10 +142,9 @@ mainPlayBtn.addEventListener("click", () => {
 });
 
 secondPlayBtn.addEventListener("click", () => {
-  helpPageActive = document.querySelector(".help-page.active");
-  helpPageActive.style.opacity = "0";
+  helpPage.style.opacity = "0";
 
-  helpPageActive.addEventListener("transitionend", () => {
+  helpPage.addEventListener("transitionend", () => {
     helpPage.classList.remove("active");
     helpBtn.classList.add("active");
   });
@@ -160,6 +160,7 @@ rulesBtn.addEventListener("click", () => {
 });
 
 helpBtn.addEventListener("click", () => {
-  helpBtn.classList.remove("active");
+  helpPage.style.opacity = "100";
   helpPage.classList.add("active");
+  helpBtn.classList.remove("active");
 });
