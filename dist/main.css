@@ -458,6 +458,7 @@ h6 {
   flex-direction: column;
   height: 100%;
   border-radius: 4px;
+  transition: background-color 150ms ease-out;
 }
 .game-container .game-table .screen .action-screen.win {
   background-color: #7cf280;

@@ -86,6 +86,8 @@ function createInfoMessageElement(text) {
 
   p.textContent = text;
 
+  p.style.color = "#DAA236";
+
   div.appendChild(p);
   screen.appendChild(div);
 }
