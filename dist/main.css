@@ -318,6 +318,9 @@ template {
 
 body {
   font-family: "Roboto Slab", serif;
+  background-image: url("../imgs/bg.svg");
+  background-size: contain;
+  background-repeat: repeat;
 }
 
 h1,
@@ -355,13 +358,6 @@ h6 {
   display: flex;
   justify-content: center;
   padding-top: 72px;
-}
-.game-container .blob-bg {
-  position: absolute;
-  top: 160px;
-  bottom: 0;
-  z-index: -1;
-  overflow: hidden;
 }
 .game-container .game-table {
   display: flex;
