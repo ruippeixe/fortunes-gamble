@@ -53,6 +53,13 @@ function updateScreenInfo(symbol, resultType, betSizeResultValue) {
     actionScreen.classList.add("lose");
     operator.textContent = "-";
   }
+
+  actionScreen.classList.add("blink-on-bet");
+
+  setTimeout(() => {
+    actionScreen.classList.remove("blink-on-bet");
+  }, 50);
+
   screenValue.textContent = formatNumberWithSpaces(betSizeResultValue);
   currency.textContent = "€";
 }

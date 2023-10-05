@@ -12,7 +12,7 @@ It offers a simple yet engaging game where players can test their luck and strat
 1. Clone the repository: `git clone https://github.com/ruippeixe/gambling-app`.
 2. Navigate to the project directory: `cd gambling-app`.
 3. Open `index.html` in your preferred web browser.
-- **Or you can find it live at** [Fortune's Gamble](https://ruippeixe.github.io/gambling-app/)
+- **Or you can find it live at** [Fortune's Gamble](https://ruippeixe.github.io/fortunes-gamble/)
 
 ## Gameplay
 

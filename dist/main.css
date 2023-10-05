@@ -339,25 +339,46 @@ h6 {
 }
 
 .header {
-  padding-top: 48px;
   padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
 }
+@media (max-width: 576px) {
+  .header {
+    padding: 16px;
+  }
+}
 .header .main-title {
   font-size: 2.5rem;
   margin-bottom: 8px;
 }
+@media (max-width: 576px) {
+  .header .main-title {
+    font-size: 2rem;
+  }
+}
 .header .sub-title {
   font-size: 1.5rem;
+}
+@media (max-width: 576px) {
+  .header .sub-title {
+    font-size: 1.125rem;
+  }
 }
 
 .game-container {
   display: flex;
   justify-content: center;
   padding-top: 72px;
+  padding-bottom: 72px;
+}
+@media (max-width: 576px) {
+  .game-container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
 }
 .game-container .game-table {
   display: flex;
@@ -461,6 +482,9 @@ h6 {
 }
 .game-container .game-table .screen .action-screen.lose {
   background-color: #e56767;
+}
+.game-container .game-table .screen .action-screen.blink-on-bet {
+  background-color: #4d4d4d;
 }
 .game-container .game-table .screen .action-screen .symbol {
   display: flex;

@@ -2,6 +2,12 @@
   display: flex;
   justify-content: center;
   padding-top: 72px;
+  padding-bottom: 72px;
+
+  @media (max-width: 576px) {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
 
   .game-table {
     display: flex;
@@ -121,6 +127,10 @@
 
         &.lose {
           background-color: #e56767;
+        }
+
+        &.blink-on-bet {
+          background-color: #4d4d4d;
         }
 
         .symbol {
