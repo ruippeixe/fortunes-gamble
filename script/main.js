@@ -134,21 +134,18 @@ function addExtraMoney() {
   let result = betSize * EXTRA_MULTIPLIER;
   totalMoney += result;
   updateWalletInfo();
-  console.log("mega win! ", totalMoney);
 }
 
 function addMoney() {
   let result = betSize;
   totalMoney += result;
   updateWalletInfo();
-  console.log("win! ", totalMoney);
 }
 
 function subtractMoney() {
   let result = betSize;
   totalMoney -= result;
   updateWalletInfo();
-  console.log("lose ", totalMoney);
 }
 
 // check if the bet amount was selected
